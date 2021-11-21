@@ -7,6 +7,16 @@ module.exports = function(app, passport, db) {
         res.render('index.ejs');
     });
 
+        // show the chat page (will also have our login links)
+        app.get('/chat', function(req, res) {
+          res.render('chat.ejs');
+      });
+
+        // show the chat page (will also have our login links)
+        app.get('/join', function(req, res) {
+          res.render('join.ejs');
+      });
+      
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
         db.collection('messages').find().toArray((err, result) => {
